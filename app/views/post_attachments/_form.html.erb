@@ -1,0 +1,22 @@
+<%= form_for(@post_attachment, {multipart: true, remote: true, class:"form-horizontal"}) do |f| %>
+  <div class="row">
+    <div class="col-sm-12 col-lg-12">
+      <div class="form-group">
+        <%= f.label :avatar, "<i class='fa fa-file-text'></i> Select File".html_safe, class: "control-label" %><br>
+        <%= f.file_field :avatar, class:"form-control" %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-lg-12">
+      <div class="form-group">
+        <%= f.label :convert_t, "<i class='fa fa-exchange'></i> File Type".html_safe, class:"control-label"  %>
+        <%= f.select(:convert_t, options_for_select(converter_name), {},  {class: "form-control"}) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-lg-12">
+      <%= f.submit "Submit to convert file", class: "btn btn-primary btn-lg btn-block" %>
+    </div>
+  </div>
+<% end %>
+

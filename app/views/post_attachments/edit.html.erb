@@ -1,0 +1,48 @@
+
+  <div class="container">
+    <div id="narrow-browser-alert" class="alert alert-info text-center">
+      <strong><h3>Bridge Connectivity Solutions </h3></strong> <br>Bridge Community to Technology and Services!</div>
+
+    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+      <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+        <li role="presentation" class="active">
+          <a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+            <span class="text">File Converter</span>
+          </a>
+        </li>
+        <li role="presentation" class="next">
+          <a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">
+            <span class="text">Profile</span>
+          </a>
+        </li>
+      </ul>
+
+      <div id="myTabContent" class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+          <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <%= render 'form' %>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <div class="panel panel-danger">
+              <div class="panel-heading">Instructions:</div>
+              <div class="panel-body">
+                <div class="alert alert-warning">
+                  <i class="fa fa-arrow-right"></i> First line of file should not be blank.<br>
+                  <i class="fa fa-arrow-right"></i> Two space or tab between verse number and verse.<br>
+                  <i class="fa fa-arrow-right"></i> All verse should be in single line (enter should not be present between sentences.<br>
+                  <i class="fa fa-arrow-right"></i> All original file should be inside folder. (folder name can be anything).<br>
+                  <i class="fa fa-arrow-right"></i> File name should be single word (like: 1Corinthians.txt).<br>
+                  <i class="fa fa-arrow-right"></i> Output file will be create inside output_file folder with extension .usfm
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+          <p>
+            Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson
+          </p>
+        </div>
+    </div>
