@@ -35,11 +35,10 @@
                   <tr>
                     <td><%= post_attachment.id %></td>
                     <td><%= File.basename(post_attachment.avatar.url) %></td>
-                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, root_path(post_attachment.avatar) %></td>
-                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, root_path(post_attachment.avatar) %></td>
-                    <!-- <td><%= link_to 'Show', post_attachment %></td>
-                    <td><%= link_to 'Edit', edit_post_attachment_path(post_attachment) %></td>
-                    <td><%= link_to 'Destroy', post_attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, "/uploads/#{post_attachment.id}/#{File.basename(post_attachment.avatar.url)}" %></td>
+                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, "/uploads/#{post_attachment.id}/#{File.basename(post_attachment.avatar.url)}" %></td>
+                    <td><%= link_to 'Show', post_attachment %></td>
+                    <td><%= link_to 'Destroy', post_attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                   </tr>
                 <% end %>
               </tbody>

@@ -36,8 +36,8 @@
                   <tr>
                     <td><%= @post_attachment.id %></td>
                     <td><%= File.basename(@post_attachment.avatar.url) %></td>
-                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, File.basename(@post_attachment.avatar.url) %></td>
-                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, File.basename(@post_attachment.avatar.url) %></td>
+                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, "/uploads/#{@post_attachment.id}/#{File.basename(@post_attachment.avatar.url)}" %></td>
+                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, "/uploads/#{@post_attachment.id}/#{File.basename(@post_attachment.avatar.url)}" %></td>
                     <td><%= link_to 'Home', root_path, class: 'btn btn-xs btn-info' %></td>
                   </tr>
               </tbody>
