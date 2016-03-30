@@ -64,7 +64,8 @@ class PostAttachmentsController < ApplicationController
   end
 
   def download
-    send_file '#{Rails.root}/uploads/post_attachment/#{file.id}'
+    @post_attachment = PostAttachment.find(params[:id])
+    send_file @post_attachment.avatar.path, :x_sendfile=>true
   end
 
   private
