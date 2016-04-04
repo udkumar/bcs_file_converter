@@ -26,10 +26,29 @@ class PostAttachmentsController < ApplicationController
   # POST /post_attachments
   # POST /post_attachments.json
   def create
+  
     @post_attachment = PostAttachment.new(post_attachment_params)
+       respond_to do |format|
+        if @post_attachment.save
+          chap = []
+          vers = []
+          hash = {}
+          h = Hash.new { |hash, key| hash[key] = [] }
+          flag = false
+          flag1 = false
+          l2 = ""
+          count = 0
+          book_name = ""
+          # output_name = "#{File.basename(file_name, '.*')}.usfm"
+          # output = File.open("#{output_name}", 'w:utf-8')
+          File.open(File.dirname("#{Rails.public_path}/uploads/post_attachment/avatar/") + "/#{@post_attachment.id}/" + "#{File.basename(@post_attachment.avatar.url)}")
+          text = Dir.chdir(File.open(@post_attachment.avatar.url, "r:utf-8")).read
+          # File.read(, "r:utf-8").read
+          text.gsub!(/\r\n?/, "\n")
 
-    respond_to do |format|
-      if @post_attachment.save
+          raise text.inspect
+        # output.close
+
         format.html { redirect_to @post_attachment, notice: 'Post attachment was successfully created.' }
         format.json { render :show, status: :created, location: @post_attachment }
       else
