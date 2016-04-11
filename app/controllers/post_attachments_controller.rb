@@ -30,6 +30,7 @@ class PostAttachmentsController < ApplicationController
 
     respond_to do |format|
       if @post_attachment.save
+        PostAttachment.converter(@post_attachment)
         format.html { redirect_to @post_attachment, notice: 'Post attachment was successfully created.' }
         format.json { render :show, status: :created, location: @post_attachment }
       else
