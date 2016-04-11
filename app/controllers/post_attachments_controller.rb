@@ -1,4 +1,5 @@
 class PostAttachmentsController < ApplicationController
+
   before_action :set_post_attachment, only: [:show, :edit, :update, :destroy]
 
   # GET /post_attachments
@@ -22,7 +23,7 @@ class PostAttachmentsController < ApplicationController
   # GET /post_attachments/1/edit
   def edit
   end
-
+  
   # POST /post_attachments
   # POST /post_attachments.json
   def create
@@ -41,7 +42,7 @@ class PostAttachmentsController < ApplicationController
           book_name = ""
           # output_name = "#{File.basename(file_name, '.*')}.usfm"
           # output = File.open("#{output_name}", 'w:utf-8')
-          File.open(File.dirname("#{Rails.public_path}/uploads/post_attachment/avatar/") + "/#{@post_attachment.id}/" + "#{File.basename(@post_attachment.avatar.url)}")
+          File.open(File.dirname("#{Rails.public_path}/uploads/post_attachment/avatar/") + "/ #{@post_attachment.id}/" + "#{File.basename(@post_attachment.avatar.url)}")
           text = Dir.chdir(File.open(@post_attachment.avatar.url, "r:utf-8")).read
           # File.read(, "r:utf-8").read
           text.gsub!(/\r\n?/, "\n")
