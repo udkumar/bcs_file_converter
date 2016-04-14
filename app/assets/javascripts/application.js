@@ -15,3 +15,21 @@
 //= require bootstrap.min
 //= require jquery.easing.min
 //= require responsive-tabs
+
+$("#file_upload_button").click(function() {
+  $('#file_upload').uploadifive({
+    'auto'             : false,
+    // 'checkScript'      : 'check-exists.php',
+    'formData'         : {
+                           'timestamp' : '1234567890', //'<?php echo $timestamp;?>',
+                           'token'     : '1234567890', //'<?php echo md5('unique_salt' . $timestamp);?>'
+                         },
+    'queueID'          : 'queue',
+    'uploadScript'     : '/post_attachments/new', //'uploadifive.php',
+
+    'onUploadComplete' : function(file, data)
+                          {
+                            console.log(file);
+                          }
+  });
+});
