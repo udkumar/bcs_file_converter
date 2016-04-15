@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   root 'post_attachments#index'
   match "/uploads/:id/:basename.:extension", :controller => "post_attachments", :action => "download", via: :get
+
 end

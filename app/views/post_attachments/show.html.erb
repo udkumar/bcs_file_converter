@@ -22,8 +22,8 @@
                 <tr>
                   <th>#</th>
                   <th>File Name</th>
-                  <th>Original</th>
-                  <th>Converted</th>
+                  <!-- <th>Original</th>
+                  <th>Converted</th> -->
                   <th>Action</th>
                 </tr>
               </thead>
@@ -31,9 +31,9 @@
               <tbody class="tbody">
                   <tr>
                     <td><%= @post_attachment.id %></td>
-                    <td><%= File.basename(@post_attachment.avatar.url) %></td>
-                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, "/uploads/#{@post_attachment.id}/#{File.basename(@post_attachment.avatar.url)}" %></td>
-                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, "/uploads/#{@post_attachment.id}/#{File.basename(@post_attachment.avatar.url)}" %></td>
+                    <td><%= File.basename(@post_attachment.avatar.path) %></td>
+                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, "/uploads/#{@post_attachment.id}/#{File.basename(@post_attachment.avatar.path)}" %></td>
+                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, "/uploads/#{@post_attachment.id}/#{File.basename(@post_attachment.avatar.path)}" %></td>
                     <td><%= link_to 'Home', root_path, class: 'btn btn-xs btn-info' %></td>
                   </tr>
               </tbody>

@@ -41,5 +41,7 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem "mini_magick"
 gem 'carrierwave'
+
+gem "fog"

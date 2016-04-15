@@ -7,12 +7,12 @@ class PostAttachment < ActiveRecord::Base
     b_chp = ""
     b_chp_ver_t = ""
 
-    if File.extname(file.avatar.url) == ".usfm"
-      text =  File.open(file.avatar.path).read
+    if File.extname(file.url) == ".usfm"
+      text =  File.open(file.path).read
       directory_name = "output_folder"
       Dir.mkdir("#{Rails.public_path}/" + directory_name) unless File.directory?("#{Rails.public_path}/" + directory_name)
 
-      output_name = "#{Rails.public_path}/#{directory_name}/#{File.basename(file.avatar.url, '.*')}.txt"
+      output_name = "#{Rails.public_path}/#{directory_name}/#{File.basename(file.url, '.*')}.txt"
       output = File.open(output_name, 'w')
 
       text.each_line do |line|

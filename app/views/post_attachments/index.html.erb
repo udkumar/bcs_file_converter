@@ -30,9 +30,9 @@
                 <% @post_attachments.each do |post_attachment| %>
                   <tr>
                     <td><%= post_attachment.id %></td>
-                    <td><%= File.basename(post_attachment.avatar.url) %></td>
-                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, "/uploads/#{post_attachment.id}/#{File.basename(post_attachment.avatar.url)}" %></td>
-                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, "/uploads/#{post_attachment.id}/#{File.basename(post_attachment.avatar.url)}" %></td>
+                    <td><%= File.basename(post_attachment.avatar.path) %></td>
+                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, "/uploads/#{post_attachment.id}/#{File.basename(post_attachment.avatar.path)}" %></td>
+                    <td><%= link_to "<i class='fa fa-download'></i> Download".html_safe, "/uploads/#{post_attachment.id}/#{File.basename(post_attachment.avatar.path)}" %></td>
                     <td><%= link_to 'Show', post_attachment %></td>
                     <td><%= link_to 'Destroy', post_attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                   </tr>
@@ -61,14 +61,13 @@
         </div>
         <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
           <p>
-            Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson
+            Will update soon.....
           </p>
         </div>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -82,5 +81,3 @@
 
   </div>
 </div>
-
-<%#= link_to 'New Post attachment', new_post_attachment_path %>

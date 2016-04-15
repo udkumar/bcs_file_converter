@@ -2,11 +2,9 @@
   <div class="row">
     <div class="col-sm-12 col-lg-12">
       <div class="form-group">
-      <div id="queue"></div>
-    <!-- <input id="file_upload" name="file_upload" type="file" multiple="true"> -->
-
-        <%= f.label :avatar, "<i class='fa fa-file-text'></i> Select File".html_safe, class: "control-label" %><br>
-        <%= f.file_field :avatar, class:"form-control", id:"file_upload" %>
+        <%= f.label :avatar, "<i class='fa fa-file-text'></i> File".html_safe, class: "control-label" %><br>
+          <%= f.file_field :avatar, class:"form-control btn btn-default btn-file", id: "file_upload"  %>
+          <div id="queue"></div>
       </div>
     </div>
     <div class="col-sm-12 col-lg-12">
@@ -18,8 +16,50 @@
   </div>
   <div class="row">
     <div class="col-sm-12 col-lg-12">
-      <%= f.submit "Submit to convert file", class: "btn btn-primary btn-lg btn-block", id: "file_upload_button" %>
+      <%= link_to "Submit to convert file", "javascript:$('#file_upload').uploadifive('upload')", class: "btn btn-primary btn-lg btn-block" %>
     </div>
   </div>
 <% end %>
 
+<script>
+  function current_date_time() {
+    var timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    return timestamp
+  }
+
+  function token() {
+    var token = $('meta[name="csrf-token"]').attr('content');
+    return token
+  }
+
+  function file_upload_done() {
+    $("#queue").find(".complete").fadeOut("slow", function () {
+      $(this).css({display:"none"});
+    });
+  }
+
+  $(function() {
+    var totalSize = 0;
+    var bytesUpload=0;
+    $('#file_upload').uploadifive({
+      'auto'              : false,
+      'queueSizeLimit'    : 5,
+      'formData'          : {
+                            'timestamp' : current_date_time(),
+                            'token'     : token(),
+                            },
+      'queueID'           : 'queue',
+      'uploadScript'      : '/post_attachments',
+      'onProgress'  : function(file) {
+
+        },
+      'onUploadFile'      : function(file) {
+
+        },
+      'onUploadComplete'  : function(file, data, xhr) {
+        file_upload_done();
+        console.log(file.name);
+      }
+    });
+  });
+</script>
