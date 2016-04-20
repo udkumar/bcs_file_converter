@@ -30,7 +30,9 @@ class PostAttachmentsController < ApplicationController
 
     respond_to do |format|
       if @post_attachment.save
-        PostAttachment.converter(@post_attachment)
+        if params[:convert_t] == "usfm_to_tab"
+          PostAttachment.converter(@post_attachment)
+        end
         format.html { redirect_to @post_attachment, notice: 'Post attachment was successfully created.' }
         format.json { render :show, status: :created, location: @post_attachment }
       else
